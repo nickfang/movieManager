@@ -1,9 +1,12 @@
-const express 		= require("express");
-const ejs	  		= require("ejs");
-const indexRoutes = require("./routes/index");
-const helpers 		= require("./helpers");
+const express 			= require("express");
+const ejs	  			= require("ejs");
+const mongoose			= require("mongoose");
+const indexRoutes 	= require("./routes/index");
+const helpers 			= require("./helpers");
+const errorHandlers 	= require("./handlers/errorHandlers");
 
-require("dotenv").config({ path: "varibles.env" });
+require("./models/Movie");
+require("dotenv").config({ path: "variables.env" });
 
 const app = express();
 
@@ -16,7 +19,11 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.use("/", indexRoutes)
+app.use("/", indexRoutes);
+
+app.use(errorHandlers.notFound);
+
+console.log(process.env.PORT);
 
 app.set("port", process.env.PORT || 8000);
 const server = app.listen(app.get("port"), () => {
