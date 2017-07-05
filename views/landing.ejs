@@ -18,16 +18,23 @@
 					<th>Rating</th>
 				</tr>
 			</thead>
-			<tbody>
-				<% movies.forEach( (movie) => { %>
-					<tr>
-						<th><%= movie.title %></th>
-						<th><%= movie.genre %></th>
-						<th><%= movie.year %></th>
-						<th><%= movie.actors %></th>
-						<th><%= movie.rating %></th>
-					</tr>
-				<% }); %>
+			<% if (movies.length > 0) { %>
+				<tbody>
+						<% movies.forEach( (movie) => { %>
+							<tr>
+								<th><%= movie.title %></th>
+								<th><%= movie.genre %></th>
+								<th><%= movie.year %></th>
+								<th><%= movie.actors %></th>
+								<th><%= movie.rating %></th>
+							</tr>
+						<% }); %>
+				</tbody>
+			<% } %>
+		</table>
+		<% if (!movies.length > 0) { %>
+				<h2>No Movies Found.</h2>
+		<% } %>
 	</div>
 </div>
 

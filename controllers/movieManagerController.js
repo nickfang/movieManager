@@ -26,7 +26,18 @@ exports.searchMovieForm = (req, res) => {
 	res.render("movies/search", { title: "Search for a Movie."});
 };
 
-exports.getMovies = (req, res) => {
-	res.json(req.body);
-	// res.send("Query the database, return movies info and display them.")
+exports.getMovies = async (req, res) => {
+	// Search for Title, Genre or Actor by partial or full match
+	// Search for Year by year or range.
+	// Search for rating by rating or range
+	// Get match search working first.
+
+	// remove any keys that are empty strings so the search isn't messed up.
+	for (var key in req.body) {
+		if (req.body[key] === "") {
+			delete req.body[key];
+		}
+	}
+	const movies = await Movie.find(req.body);
+	res.render("landing", { title: "Movies Found.", movies })
 };
