@@ -20,6 +20,9 @@ mongoose.connection.on("error", (err) => {
 
 const app = express();
 
+// serves up static files from the public folder
+app.use(express.static(__dirname + "/public"));
+
 // view engine setup
 app.set("view engine", "ejs");
 

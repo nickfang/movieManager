@@ -1,0 +1,43 @@
+<% include ../partials/header %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12 col-centered">
+			<h1 style="text-align: center"><%= title %></h1>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Genre</th>
+					<th>Year</th>
+					<th>Actors</th>
+					<th>Rating</th>
+				</tr>
+			</thead>
+			<% if (movies.length > 0) { %>
+				<tbody>
+						<% movies.forEach( (movie) => { %>
+							<tr>
+								<th><%= movie.title %></th>
+								<th><%= movie.genre %></th>
+								<th><%= movie.year %></th>
+								<th><%= movie.actors %></th>
+								<th><%= movie.rating %></th>
+							</tr>
+						<% }); %>
+				</tbody>
+			<% } %>
+		</table>
+		<% if (!movies.length > 0) { %>
+				<h2>No Movies Found.</h2>
+		<% } %>
+	</div>
+</div>
+
+<% include ../partials/footer %>

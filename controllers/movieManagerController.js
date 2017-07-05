@@ -1,9 +1,13 @@
 const mongoose = require("mongoose");
 const Movie = mongoose.model("Movie");
 
-exports.showLandingPage = async (req, res) => {
+exports.showLandingPage = (req, res) => {
+	res.render("landing", { title: "Welcome to the Movie Manager."});
+}
+
+exports.showMovies = async (req, res) => {
 	const movies = await Movie.find();
-	res.render("landing", { title: "Welcome to the Movie Manager.", movies });
+	res.render("movies/show", { title: "Movie Collection.", movies });
 };
 
 exports.addMovieForm = (req, res) => {
@@ -18,7 +22,7 @@ exports.addMovie = async (req, res) => {
 	const movie = new Movie(req.body);
 	await movie.save();
 	// res.json(req.body);
-	res.redirect("/");
+	res.redirect("/show");
 
 };
 
@@ -30,6 +34,7 @@ exports.getMovies = async (req, res) => {
 	// Search for Title, Genre or Actor by partial or full match
 	// Search for Year by year or range.
 	// Search for rating by rating or range
+	// TODO: store values as lowercase so search are easier?
 	// Get match search working first.
 
 	// remove any keys that are empty strings so the search isn't messed up.
@@ -39,5 +44,5 @@ exports.getMovies = async (req, res) => {
 		}
 	}
 	const movies = await Movie.find(req.body);
-	res.render("landing", { title: "Movies Found.", movies })
+	res.render("movies/show", { title: "Movies Found.", movies })
 };

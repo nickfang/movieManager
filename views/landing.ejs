@@ -1,40 +1,24 @@
 <% include ./partials/header %>
 
 <div class="container">
-	<div class="row" style="width: 60%; margin: 25px auto">
-		<h1 style="text-align: center"><%= title %></h1>
+	<div class="row">
+		<div class="col-lg-12 col-centered">
+			<h1 style="text-align: center"><%= title %></h1>
+		</div>
 	</div>
 </div>
-
 <div class="container">
 	<div class="row">
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Title</th>
-					<th>Genre</th>
-					<th>Year</th>
-					<th>Actors</th>
-					<th>Rating</th>
-				</tr>
-			</thead>
-			<% if (movies.length > 0) { %>
-				<tbody>
-						<% movies.forEach( (movie) => { %>
-							<tr>
-								<th><%= movie.title %></th>
-								<th><%= movie.genre %></th>
-								<th><%= movie.year %></th>
-								<th><%= movie.actors %></th>
-								<th><%= movie.rating %></th>
-							</tr>
-						<% }); %>
-				</tbody>
-			<% } %>
-		</table>
-		<% if (!movies.length > 0) { %>
-				<h2>No Movies Found.</h2>
-		<% } %>
+		<div class="col-lg-1"></div>
+		<div class="col-lg-10 col-centered">
+			<p class="lead"> Welcome to the Movie Manager where you can store, view and search for movies by Title, Genre, Year, Actors and Rating.</p>
+			<br>
+			<ul>
+				<li class="lead"> The Movies link will display all of your movies.  </li>
+				<li class="lead"> New movies can be added through the Add link.  </li>
+				<li class="lead"> Click on the Search link to find one or more movies by their information. </li>
+			<ul>
+		</div>
 	</div>
 </div>
 
