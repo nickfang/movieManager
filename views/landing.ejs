@@ -6,4 +6,29 @@
 	</div>
 </div>
 
+<div class="container">
+	<div class="row">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Genre</th>
+					<th>Year</th>
+					<th>Actors</th>
+					<th>Rating</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% movies.forEach( (movie) => { %>
+					<tr>
+						<th><%= movie.title %></th>
+						<th><%= movie.genre %></th>
+						<th><%= movie.year %></th>
+						<th><%= movie.actors %></th>
+						<th><%= movie.rating %></th>
+					</tr>
+				<% }); %>
+	</div>
+</div>
+
 <% include ./partials/footer %>

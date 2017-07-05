@@ -1,12 +1,13 @@
 const mongoose = require("mongoose");
 const Movie = mongoose.model("Movie");
 
-exports.showLandingPage = (req, res) => {
-	res.render("landing", { title: "Welcome to the Movie Manager." });
+exports.showLandingPage = async (req, res) => {
+	const movies = await Movie.find();
+	res.render("landing", { title: "Welcome to the Movie Manager.", movies });
 };
 
 exports.addMovieForm = (req, res) => {
-	res.render("movies/add", { title: "Add a New Movie.", button: "Submit" });
+	res.render("movies/add", { title: "Add a New Movie."});
 };
 
 exports.addMovie = async (req, res) => {
@@ -16,22 +17,16 @@ exports.addMovie = async (req, res) => {
 	// TODO: Validate inputs
 	const movie = new Movie(req.body);
 	await movie.save();
-	res.json(req.body);
-	// res.render("/");
+	// res.json(req.body);
+	res.redirect("/");
 
-// {
-// "title": "test",
-// "genre": "Action",
-// "year": "1994",
-// "actors": "John Goodman, Helen Hunt",
-// "rating": "4"
-// }
 };
 
 exports.searchMovieForm = (req, res) => {
-	res.render("movies/search", { title: "Search for a Movie.", button: "Search" });
+	res.render("movies/search", { title: "Search for a Movie."});
 };
 
 exports.getMovies = (req, res) => {
-	res.send("Query the database, return movies info and display them.")
+	res.json(req.body);
+	// res.send("Query the database, return movies info and display them.")
 };
