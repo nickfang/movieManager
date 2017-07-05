@@ -3,7 +3,7 @@ exports.showLandingPage = (req, res) => {
 };
 
 exports.addMovieForm = (req, res) => {
-	res.render("/movies/add", { title: "Add a New Movie." });
+	res.render("movies/add", { title: "Add a New Movie." });
 };
 
 exports.addMovie = (req, res) => {
@@ -11,7 +11,7 @@ exports.addMovie = (req, res) => {
 };
 
 exports.searchMovieForm = (req, res) => {
-	res.render("/movies/search", { title: "Search for a Movie." });
+	res.render("movies/search", { title: "Search for a Movie." });
 };
 
 exports.getMovies = (req, res) => {
