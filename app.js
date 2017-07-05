@@ -1,17 +1,30 @@
 const express 			= require("express");
 const ejs	  			= require("ejs");
 const mongoose			= require("mongoose");
-const indexRoutes 	= require("./routes/index");
-const helpers 			= require("./helpers");
+const bodyParser		= require("body-parser");
 const errorHandlers 	= require("./handlers/errorHandlers");
+const helpers 			= require("./helpers");
 
 require("./models/Movie");
 require("dotenv").config({ path: "variables.env" });
+
+const indexRoutes 	= require("./routes/index");
+
+
+// connect to our database
+mongoose.connect(process.env.DATABASE);
+mongoose.Promise = global.Promise;
+mongoose.connection.on("error", (err) => {
+	console.error(`Mongoose error: ${err.message}`);
+});
 
 const app = express();
 
 // view engine setup
 app.set("view engine", "ejs");
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // pass global information to each page.
 app.use((req, res, next) => {

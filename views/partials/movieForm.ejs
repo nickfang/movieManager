@@ -1,0 +1,35 @@
+<container>
+	<div class="row">
+		<div class="col-lg-2"></div>
+		<div class="col-lg-8 col-centered">
+			<form action="add" method="POST">
+				<div class="form-group">
+					<div class="input-group input-group-lg	">
+						<label class="input-group-addon" for="title">Movie Title</label>
+						<input class="form-control" type="text" name="title" placeholder="Movie Title">
+					</div>
+					<div class="input-group input-group-lg">
+						<label class="input-group-addon" for="genre">Movie Genre</label>
+						<input class="form-control" type="text" name="genre" placeholder="Action, Comedy, Drama ...">
+					</div>
+					<div class="input-group input-group-lg">
+						<label class="input-group-addon" for="year">Year</label>
+						<input class="form-control" type="number" name="year" placeholder="Year">
+					</div>
+					<div class="input-group input-group-lg">
+						<label class="input-group-addon" for="actors">Actors</label>
+						<input class="form-control" type="text" name="actors" placeholder="Comma separated list">
+					</div>
+					<!-- use radial buttons to allow them to choose a rating by clicking.  Use CSS to highlight lower buttons so you know how many "Stars" were selected and to change the shape of the buttons to stars. -->
+					<div class="input-group input-group-lg">
+						<label class="input-group-addon" for="rating">Rating</label>
+						<input class="form-control" type="text" name="rating" placeholder="1-5">
+					</div>
+					<div class="text-right">
+						<button class="btn btn-lg"><%= button %></button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</container>
