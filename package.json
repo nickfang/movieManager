@@ -1,0 +1,23 @@
+{
+  "name": "moviemanager",
+  "version": "1.0.0",
+  "description": "A simple home movie collection manager with the ability to search based on movie information.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/nickfang/movieManager.git"
+  },
+  "author": "nfang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nickfang/movieManager/issues"
+  },
+  "homepage": "https://github.com/nickfang/movieManager#readme",
+  "dependencies": {
+    "ejs": "^2.5.6",
+    "express": "^4.15.3"
+  }
+}
